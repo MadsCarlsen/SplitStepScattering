@@ -1,0 +1,24 @@
+! This contians the settings used in imaginary time propagation 
+&IMAG_SETTINGS
+
+! Grid settings 
+Nx = 512  ! Nr. of points in x-direction 
+x_low = -20.  ! Minimum grid value in x-direction 
+x_high = 20.  ! Maximum grid value in x-direction
+
+Ny = 512
+y_low = -20.
+y_high = 20.
+
+! Time settings 
+dt = 0.1  ! Time step 
+t_final = 10.
+Nt = 1000
+
+! Softening parameter for the Coulomb potential
+soft_param = 0.63 
+
+! Nr. of threads used in calculations 
+N_threads = 2
+
+/ 

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cd source 
+
+# Compile programs for determining scattering potentials 
+gfortran utils.f90 imag_prop.f90 -o imag_prop.exe -I/usr/include -fopenmp -lfftw3 -lfftw3_omp -O3 
+gfortran utils.f90 calculate_scatt_pots.f90 -o scatt_pots.exe -fopenmp -O3
+mv imag_prop.exe ../
+mv scatt_pots.exe ../
+
+# Compile programs for scattering simulation 
+gfortran utils.f90 split_step_A_field.f90 -o split_step.exe -I/usr/include -lfftw3 -lfftw3_omp -fopenmp -O3
+mv split_step.exe ../

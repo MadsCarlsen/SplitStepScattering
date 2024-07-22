@@ -1,0 +1,53 @@
+&SPLIT_STEP_GRID
+! Grid settings 
+Nx = 1024  ! Nr. of points in x-direction 
+x_low = -150  ! Minimum grid value in x-direction 
+x_high = 150  ! Maximum grid value in x-direction
+Ny = 1024
+y_low = -150
+y_high = 150
+
+dt = 0.1  ! Time step 
+
+! Mask parameters 
+mask_bound = 140.  ! Where the absorbing boundary starts 
+mask_max = 150.  ! Maximum value of the absorbing boundary, no WP pass this point 
+cos_power = 3  ! Parameter determining the steepness of the cos-mask
+
+! Parameters for potential 
+r_max = 50.
+r_boundary = 40. 
+/ 
+
+&SPLIT_STEP_OTHER
+! Field settings 
+I0 = 1.e12  ! W/cm^2
+omega_l = 0.317213558  ! a.u.
+N_cycles = 2  ! Nr. of cycles contained in the laser pulse
+cep = 0  ! Carrier envelope phase - units of pi 
+
+! Initial state settings 
+x0 = 0.  ! Target offset in x-direction, not implemented in this version
+y0 = 0.  ! Target offset in y-direction, not implemented in this version
+k0x = 4.  ! Initial projectile momentum in x-direction
+k0y = 0.  ! Initial projectile momentum in y-direction
+sigma_time = 2.5  ! Projectile WP width in time, factor multiplied with k0x  
+sigma_y = 5.  ! Projectile WP width in y-direction 
+
+theta = 1.  ! in multiples of pi. Determines population in 2LS, sin(theta/2) * |1> + exp(i*phi) * cos(theta/2) * |2>
+phi = 0.  ! in multiples of pi. 
+
+PINEM_packet = .false.  ! If false then Gaussian WP is used 
+g_factor = 5.  ! Modulation parameter for PINEM WP
+max_N = 12  ! Maximum nr. of sidebands calculated for PINEM WP
+omega = 0.09112670505815908  ! 500 nm  ! Modulation frequency of PINEM WP
+
+t_interract = 8.  ! Nr. of sigmas in time the simulation is started before collision
+
+! Save settings - Maxmimum momentum values of grid saved. If larger than simulation grid, the whole grid in that direction is returned 
+kx_lower = 1.
+kx_upper = 7.
+ky_lower = -4. 
+ky_upper = 4. 
+
+/ 
